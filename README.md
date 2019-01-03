@@ -29,15 +29,11 @@ Si le type de contenu est text la longueur sera tronquée à 255 (avec alerte) e
 - mettre à jour la liste des statuts de tâche selon le nombre de zone du kanban 
 - mettre à jour la liste des panneaux à synchroniser dans la colonne.
 
-5/ Créer votre panneau iObeya Kanban à partir d’un template (attention au nom du panneau il doit être identique dans tous les paramétrages )
-
+5/ Créer votre panneau iObeya Kanban à partir d’un template (attention au nom du panneau il doit être identique dans tous les paramétrages ) 
 Sachez que si vous utilisez des espaces ou caractères accentués ou spéciaux, il faudra encoder l’url de rafraichissement avec des %xx ( ex %20 à la place des espaces).
-
 Le nom du panneau doit être unique dans l’ensemble du paramétrage en vigueur, car il sert de clé de recherche.
 
-6/ Adapter l’url de la zone de rafraichissement d’acteur; l’url doit être de la forme : la variable boardname précise en URLEncoded le nom du panneau:
-
-https://devptf.sharepoint.com/sites/pfe/JsDocs/callRefreshActors.aspx?boardname=Developpement%20-%20Interne
+6/ Adapter l’url de la zone de rafraichissement d’acteur; l’url doit être de la forme : la variable boardname précise en URLEncoded le nom du panneau https://devptf.sharepoint.com/sites/pfe/JsDocs/callRefreshActors.aspx?boardname=Developpement%20-%20Interne
 
 7/ Modifier le fichier de configuration interfaceConfig.js pour ajouter la nouvelle configuration.
 Vous pouvez travailler par héritage d’un autre paramètre par exemple:
@@ -51,8 +47,9 @@ Vous pouvez travailler par héritage d’un autre paramètre par exemple:
 	'RIDALIST_URL' : '/sites/pfe/Lists/Chantier Program Acceleration/MyItems.aspx',
 }
 ```
-7/ Si vous souhaitez mettre en oeuvre la capacité d'escalade de post-it entre 2 panneaux:
+**8/ Si vous souhaitez mettre en oeuvre la capacité d'escalade de post-it entre 2 panneaux:**
 
+```
 ,/*<- pensez à ajouter une virgule à l’issus du dernier paramètre existant ( c’est une liste javascript , le ‘,’ délimite 2 valeurs)*/
     //important : les noms de board target sont uniques entre les #plateformes connectées
     'ESCALLATION_MAPPING': {
@@ -72,8 +69,12 @@ Vous pouvez travailler par héritage d’un autre paramètre par exemple:
             }
     }
     }, // la virgule s'il y a d'autres paramètres en suivant
-8/ Si vous souhaitez mettre en oeuvre la capacité de log des actions dans une liste sharepoint
 
+```
+
+**9/ Si vous souhaitez mettre en oeuvre la capacité de log des actions dans une liste Sharepoint:**
+
+```
 Créer une liste de log dans le sharepoint (prendre modèle : Modèle de liste pour log actions iObeya.stp )
 
 
@@ -96,7 +97,9 @@ Créer une liste de log dans le sharepoint (prendre modèle : Modèle de liste 
             }
     }
     }, // la virgule s'il y a d'autres paramètres en suivant
-    
-9/ Effectuez quelques tests croisés de création de note ou d’entrée RIDA pour vérifier que vos paramètres sont OK. 
 
-10/ Fini
+```
+
+10/ Effectuez quelques tests croisés de création de note ou d’entrée RIDA (relevé information Décision Actions, nom de 4 colonnes de la liste des tâches dans Sharepoint) pour vérifier que vos paramètres sont OK.
+
+11/ Fin
